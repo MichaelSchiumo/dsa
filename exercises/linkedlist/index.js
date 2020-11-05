@@ -121,16 +121,22 @@ class LinkedList {
   }
 
   removeAt(idx) {
-    //if list is empty, return
     if (!this.head) {
       return;
     }
 
-    //check for out of bounds index
-    let size = this.size();
-    if (idx + 1 > size) {
+    if (idx === 0) {
+      this.head = this.head.next;
       return;
     }
+
+    const prev = this.getAt(idx - 1);
+
+    if (!prev || !prev.next) {
+      return;
+    }
+
+    prev.next = prev.next.next;
   }
 }
 
