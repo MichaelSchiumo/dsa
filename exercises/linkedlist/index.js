@@ -99,6 +99,39 @@ class LinkedList {
 
     this.head = new Node(data);
   }
+
+  getAt(idx) {
+    //create count var
+    let count = 0;
+    //find head node
+    let node = this.head;
+
+    //as long as we have a node, iterate through
+    while (node) {
+      //count represents the index of the node as we iterate
+      if (count === idx) {
+        return node;
+      }
+
+      count++;
+      node = node.next;
+    }
+
+    return node;
+  }
+
+  removeAt(idx) {
+    //if list is empty, return
+    if (!this.head) {
+      return;
+    }
+
+    //check for out of bounds index
+    let size = this.size();
+    if (idx + 1 > size) {
+      return;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
