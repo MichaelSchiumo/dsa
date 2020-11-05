@@ -88,6 +88,17 @@ class LinkedList {
     //we can simply set the next property of prev to null, making it the last element
     prev.next = null;
   }
+
+  insertLast(data) {
+    let last = this.getLast();
+
+    if (last) {
+      last.next = new Node(data);
+      return;
+    }
+
+    this.head = new Node(data);
+  }
 }
 
 module.exports = { Node, LinkedList };
